@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe BetVictor::Sports do
+describe BetVictor::Content do
 
-  subject { BetVictor::Sports.new }
+  subject { BetVictor::Content.new }
 
   let(:connection)    { double 'connection' }
   let(:response)      { double 'response' }
