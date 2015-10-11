@@ -2,7 +2,7 @@ class Api
   class V1
     class SportsController < ApplicationController
       def index
-        getter = Sports::Get.new
+        getter = BetVictor::Sports.new
         sports = getter.call
 
         respond_with json: :sports
