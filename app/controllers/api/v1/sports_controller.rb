@@ -8,6 +8,8 @@ class Api
         respond_with json: :sports
       end
 
+      private 
+      
       def sports_params
         content = BetVictor::Content.new
         content.call
