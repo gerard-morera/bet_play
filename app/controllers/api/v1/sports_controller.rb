@@ -1,18 +1,19 @@
-class Api
-  class V1
+module Api
+  module V1
     class SportsController < ApplicationController
-      def index
-        filter = Filters::Sports.new sports_params
-        sports = filter.call
 
-        respond_with json: :sports
+      def index
+        getter = Sports::Get.new sports_params
+        sports = getter.call
+
+        render json: sports
       end
 
       private 
       
       def sports_params
         content = BetVictor::Content.new
-        content.call
+        content.get
       end
     end
   end
