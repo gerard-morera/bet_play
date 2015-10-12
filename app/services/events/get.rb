@@ -12,10 +12,6 @@ module Events
 
     private
 
-    def json_content
-      JSON.parse(content)
-    end
-
     attr_reader :params
 
     delegate :id, :content, to: :params
