@@ -11,7 +11,6 @@ describe Sports::Show do
     }
   end
 
-
   before do
     allow(params).to receive(:content).
       and_return(content)

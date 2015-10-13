@@ -5,15 +5,17 @@ module Events
     end
 
     def call
+      # falla pel .first
       sport.first["events"].map do |event|
         event.event_id
+      end
     end
 
     private
 
     def sport
-      @sport ||= Sports::Show.new params
-      sport.call
+      selected_sport =  Sports::Show.new params
+      selected_sport.call
     end
 
     attr_reader :params

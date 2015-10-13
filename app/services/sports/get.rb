@@ -1,7 +1,7 @@
 module Sports
   class Get
     def initialize api_content
-      @api_content = JSON.parse(api_content)
+      @api_content = api_content
     end
 
     def call
