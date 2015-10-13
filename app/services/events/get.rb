@@ -5,8 +5,8 @@ module Events
     end
 
     def call
-      # falla pel .first
-      sport.first["events"].map do |event|
+      binding.pry
+      sport["events"].map do |event|
         event["event_id"]
       end
     end

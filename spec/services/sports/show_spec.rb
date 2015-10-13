@@ -19,8 +19,17 @@ describe Sports::Show do
   end
 
   describe 'call' do
-    it 'returns the sport with matching id' do
-      expect(subject.call).to eq([{ "id"=>100, "events" => [{"id"=>292582210}] }])
+    context 'when id matches' do
+      it 'returns the sport with matching id' do
+        expect(subject.call).to eq({ "id"=>100, "events" => [{"id"=>292582210}] })
+      end
+    end
+
+    context 'when id does not match' do
+      let(:id) { 600 }
+      it 'returns nil' do
+        expect(subject.call). to eq nil
+      end
     end
   end
 end

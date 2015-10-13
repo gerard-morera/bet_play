@@ -5,15 +5,15 @@ module Sports
     end
 
     def call
-      content.fetch("sports").select do |sport|
+      content.fetch("sports").find do |sport|
         sport["id"] == id
       end
     end
 
     private
 
-      attr_reader :params
+    attr_reader :params
 
-      delegate :id, :content, to: :params
+    delegate :id, :content, to: :params
   end
 end
