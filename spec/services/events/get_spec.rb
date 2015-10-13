@@ -1,7 +1,8 @@
 describe Events::Get do 
-  let(:params)  { double 'params' }
+  let(:params)   { double 'params' }
+  let(:content)  { double 'content' }
   
-  subject { described_class.new params }
+  subject { described_class.new params, content }
 
   let(:selected_sport) { double 'selected_sport', call: sport}
   let(:sport) do 
@@ -9,7 +10,7 @@ describe Events::Get do
   end
 
   before do
-    allow(Sports::Show).to receive(:new).with(params).
+    allow(Sports::Show).to receive(:new).with(params, content).
       and_return(selected_sport)
 
     allow(selected_sport).to receive(:call).

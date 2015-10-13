@@ -1,7 +1,8 @@
 module Events
   class Get
-    def initialize params
-      @params = params
+    def initialize params, content
+      @params  = params
+      @content = content
     end
 
     def call
@@ -17,10 +18,10 @@ module Events
     end
 
     def sport
-      @selected_sport ||=  Sports::Show.new(params).call
+      @sport ||=  Sports::Show.new(params, content).call
     end
 
-    attr_reader :params
+    attr_reader :params, :content
   end
 end
 

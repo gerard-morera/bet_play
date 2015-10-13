@@ -1,19 +1,20 @@
 module Sports
   class Show
-    def initialize params
-      @params = params
+    def initialize params, content
+      @params  = params
+      @content = content
     end
 
     def call
       content.fetch("sports").find do |sport|
-        sport["id"] == id
+        sport["id"].to_i == id.to_i
       end
     end
 
     private
 
-    attr_reader :params
+    attr_reader :params, :content
 
-    delegate :id, :content, to: :params
+    delegate :id, to: :params
   end
 end

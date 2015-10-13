@@ -1,7 +1,7 @@
 describe Sports::Show do
   let(:params) { double 'params' }
 
-  subject { described_class.new params }
+  subject { described_class.new params, content }
 
   let(:id) { 100 }
   let(:content) do
@@ -12,8 +12,6 @@ describe Sports::Show do
   end
 
   before do
-    allow(params).to receive(:content).
-      and_return(content)
     allow(params).to receive(:id).
     and_return(id)
   end
