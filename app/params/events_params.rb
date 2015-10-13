@@ -2,6 +2,7 @@ class EventsParams
   def initialize raw_params, content_service_class: BetVictor::Content, parser_class: Parsers::JsonToRuby
     @raw_params            = raw_params
     @content_service_class = content_service_class
+    @parser_class          = parser_class
   end
 
   def id
@@ -20,5 +21,5 @@ class EventsParams
     parser.call
   end
 
-  attr_reader :raw_params, :content_service_class
+  attr_reader :raw_params, :content_service_class, :parser_class
 end
