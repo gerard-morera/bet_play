@@ -19,7 +19,7 @@ describe Sports::Show do
   end
 
   describe 'call' do
-    it '' do
+    it 'returns the sport with matching id' do
       expect(subject.call).to eq([{ "id"=>100, "events" => [{"id"=>292582210}] }])
     end
   end
