@@ -7,7 +7,7 @@ module Events
     def call
       # falla pel .first
       sport.first["events"].map do |event|
-        event.event_id
+        event["event_id"]
       end
     end
 
@@ -19,8 +19,6 @@ module Events
     end
 
     attr_reader :params
-
-    delegate :id, :content, to: :params
   end
 end
 
