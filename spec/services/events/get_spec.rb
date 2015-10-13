@@ -1,18 +1,18 @@
-describe Events::Get do 
-  let(:params)  { double 'params' }
+# describe Events::Get do 
+#   let(:params)  { double 'params' }
   
-  subject { described_class.new params }
+#   subject { described_class.new params }
   
-  let(:content) do
-    { "sports" => [{"id"=>100, "events" => [{"id"=>292582210,}
-  end
+#   let(:content) do
+   
+#   end
 
-  before do
-    allow(params).to receive(:content).
-      and_return(content)
-  end
+#   before do
+#     allow(params).to receive(:content).
+#       and_return(content)
+#   end
 
-  describe 'call' do
+#   describe 'call' do
 
-  end
-end
+#   end
+# end

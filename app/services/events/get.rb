@@ -10,9 +10,10 @@ module Events
     end
 
     private
+
     def sport
-      content.fetch("sports").select do |sport|
-        sport["id"] == id
+      @sport ||= Sports::Show.new params
+      sport.call
     end
 
     attr_reader :params
