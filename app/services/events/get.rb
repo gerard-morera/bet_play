@@ -5,20 +5,28 @@ module Events
     end
 
     def call
-      binding.pry
-      sport["events"].map do |event|
+      valid_sport["events"].map do |event|
         event["event_id"]
-      end
+      end.compact
     end
 
     private
 
+    def valid_sport
+      sport || NullSport.new
+    end
+
     def sport
-      selected_sport =  Sports::Show.new params
-      selected_sport.call
+      @selected_sport ||=  Sports::Show.new(params).call
     end
 
     attr_reader :params
+  end
+end
+
+class NullSport
+  def [] value
+    []
   end
 end
 

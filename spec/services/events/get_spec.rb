@@ -5,7 +5,7 @@ describe Events::Get do
 
   let(:selected_sport) { double 'selected_sport', call: sport}
   let(:sport) do 
-    [{ "id"=>100, "events" => [{"event_id"=>292582210},{}]}]
+    { "id"=>100, "events" => [{"event_id"=>292582210},{}]}
   end
 
   before do
@@ -17,8 +17,18 @@ describe Events::Get do
   end
 
   describe 'call' do
-    it 'gets the events ids' do 
-      expect(subject.call).to eq([292582210, nil])
+    context 'when sport has value' do
+      it 'gets the events ids' do 
+        expect(subject.call).to eq([292582210])
+      end
+    end
+
+    context 'when sport nil' do
+      let(:sport) { nil }
+
+      it 'shows that there are no events available' do
+        expect(subject.call).to eq([])
+      end
     end
   end
 end
