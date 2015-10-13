@@ -18,7 +18,7 @@ describe Events::Get do
 
   describe 'call' do
     it 'gets the events ids' do 
-      expect(subject.call).to eq([292582210, nil)
+      expect(subject.call).to eq([292582210, nil])
     end
   end
 end
