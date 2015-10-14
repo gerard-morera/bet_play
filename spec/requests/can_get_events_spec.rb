@@ -28,7 +28,7 @@ RSpec.describe "CanGetEvents", type: :request do
     end
 
     context "without events on the external API" do
-      it "" do
+      it "returns an empty array" do
         get sport_events_path(:sport_id => "000")
         expect(response.body).to eq("[]")
       end
