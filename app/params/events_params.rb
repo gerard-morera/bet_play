@@ -4,7 +4,7 @@ class EventsParams
   end
 
   def id
-    raw_params.fetch :sport_id
+    raw_params.fetch "sport_id"
   end
 
   private
