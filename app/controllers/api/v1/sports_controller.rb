@@ -1,9 +1,8 @@
 module Api
   module V1
     class SportsController < ApplicationController
-
       def index
-        getter = Sports::Get.new sports_params
+        getter = Sports::Get.new content
         sports = getter.call
 
         render json: sports
@@ -11,7 +10,7 @@ module Api
 
       private 
       
-      def sports_params
+      def content
         content = BetVictor::Content.new
         content.get
       end
