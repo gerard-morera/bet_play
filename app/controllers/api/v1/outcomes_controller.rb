@@ -11,7 +11,7 @@ module Api
       private
 
       def outcomes_params
-        Params::Outcomes.new params
+        Params::OutcomesParams.new params
       end
 
       def content
