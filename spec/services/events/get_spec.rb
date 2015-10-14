@@ -1,6 +1,6 @@
 describe Events::Get do 
-  let(:params)   { double 'params' }
-  let(:content)  { double 'content' }
+  let(:params)      { double 'params' }
+  let(:content)     { double 'content' }
   let(:sport_class) { double 'sport_class'}
 
   
