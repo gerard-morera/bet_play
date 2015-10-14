@@ -15,6 +15,3 @@ module Sports
     attr_reader :api_content
   end
 end
-
-#cambiar per Sports::List
-#s'ha d'afegir títol

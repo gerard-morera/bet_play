@@ -1,8 +1,9 @@
 module Events
   class Get
-    def initialize params, content
-      @params  = params
-      @content = content
+    def initialize params, content, sport_class: Sports::Show
+      @params      = params
+      @content     = content
+      @sport_class = sport_class
     end
 
     def call
@@ -18,19 +19,9 @@ module Events
     end
 
     def sport
-      @sport ||=  Sports::Show.new(params, content).call
+      @sport ||=  sport_class.new(params, content).call
     end
 
-    attr_reader :params, :content
+    attr_reader :params, :content, :sport_class
   end
 end
-
-class NullSport
-  def [] value
-    []
-  end
-end
-
-#mirar categorització desports,
-# Sports::Get  => index (Torna titol)
-# Sports::Show => Show  (torna objecte)

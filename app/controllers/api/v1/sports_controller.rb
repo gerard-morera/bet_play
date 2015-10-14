@@ -1,7 +1,6 @@
 module Api
   module V1
     class SportsController < ApplicationController
-
       def index
         getter = Sports::Get.new content
         sports = getter.call
