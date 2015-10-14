@@ -16,18 +16,22 @@ RSpec.describe "CanGetEvents", type: :request do
     end
 
     context "with events on the external API" do
-      xit "has 200 response status" do
+      it "has 200 response status" do
         get sport_events_path(:sport_id => "101")
         expect(response).to have_http_status(200)
       end
 
       it "returns a list of events" do
         get sport_events_path(:sport_id => "101")
-        expect(response).to eq(["[1728292,23873287]"])
+        expect(response.body).to eq("[1728292,23873287]")
       end
     end
 
     context "without events on the external API" do
+      it "" do
+        get sport_events_path(:sport_id => "000")
+        expect(response.body).to eq("[]")
+      end
     end
   end
 end
