@@ -5,7 +5,7 @@ RSpec.describe "CanListSports", type: :request do
 
     let(:content)     { double 'content' }
     let(:get_content) do 
-      "{\"version\":\"9\",\"sports\":[{\"id\":101,\"title\":\"Football\"},{\"id\":100,\"title\":\"Tenis\"}]}"
+      {"version"=>"9", "sports"=>[{"id"=>101, "title"=>"Football"}, {"id"=>100, "title"=>"Tenis"}]}
     end
 
     before do

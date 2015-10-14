@@ -5,7 +5,7 @@ RSpec.describe "CanGetEvents", type: :request do
 
     let(:content_instance) { double 'content_instance' }
     let(:content) do
-      "{\"version\":\"9\",\"sports\":[{\"id\":101,\"title\":\"Football\",\"events\":[{\"event_id\":1728292},{\"event_id\":23873287}]},{\"id\":100,\"title\":\"Tenis\"}]}"
+      {"version"=>"9", "sports"=>[{"id"=>101, "title"=>"Football", "events"=>[{"event_id"=>1728292}, {"event_id"=>23873287}]}, {"id"=>100, "title"=>"Tenis"}]}
     end
 
     before do

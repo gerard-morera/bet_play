@@ -3,7 +3,7 @@ module Api
     class SportsController < ApplicationController
 
       def index
-        getter = Sports::Get.new(parse(content))
+        getter = Sports::Get.new content
         sports = getter.call
 
         render json: sports
@@ -14,11 +14,6 @@ module Api
       def content
         content = BetVictor::Content.new
         content.get
-      end
-
-      def parse args
-        parser = Parsers::JsonToRuby.new args
-        parser.call
       end
     end
   end
