@@ -15,3 +15,4 @@ module Sports
     attr_reader :api_content
   end
 end
+#what else can content be? nil etc

@@ -1,3 +1,0 @@
-describe NullSport do
-  
-end

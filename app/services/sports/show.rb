@@ -18,3 +18,5 @@ module Sports
     delegate :id, to: :params
   end
 end
+
+#what else can content be? nil etc

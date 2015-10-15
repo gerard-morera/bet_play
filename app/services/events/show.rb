@@ -6,12 +6,17 @@ module Events
     end
 
     def call
-      sport["events"].find do |event|
-        event["event_id"]== event_id
+      # sport pot ser nil
+      existent_sport["events"].find do |event|
+        event["event_id"].to_i == event_id.to_i
       end
     end
 
     private
+
+    def existent_sport
+      sport || NullSport.new
+    end
 
     attr_reader :params, :sport
 
