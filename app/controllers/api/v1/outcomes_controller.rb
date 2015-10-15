@@ -2,7 +2,6 @@ module Api
   module V1
     class OutcomesController < ApplicationController
       def index
-        binding.pry
         getter   = Outcomes::Get.new outcomes_params, content
         outcomes = getter.call
 
