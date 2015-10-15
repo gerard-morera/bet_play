@@ -26,7 +26,7 @@ describe Sports::Show do
     context 'when id does not match' do
       let(:id) { 600 }
       it 'returns nil' do
-        expect(subject.call). to eq nil
+        expect(subject.call).to eq nil
       end
     end
   end

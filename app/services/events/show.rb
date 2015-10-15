@@ -6,7 +6,6 @@ module Events
     end
 
     def call
-      # sport pot ser nil
       existent_sport["events"].find do |event|
         event["event_id"].to_i == event_id.to_i
       end
