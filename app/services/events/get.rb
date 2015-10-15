@@ -7,14 +7,14 @@ module Events
     end
 
     def call
-      valid_sport["events"].map do |event|
+      existing_sport["events"].map do |event|
         event["event_id"]
       end.compact
     end
 
     private
 
-    def valid_sport
+    def existing_sport
       sport || NullSport.new
     end
 
