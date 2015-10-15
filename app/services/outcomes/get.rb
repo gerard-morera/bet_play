@@ -1,26 +1,32 @@
 module Outcomes 
   class Get
-    def initialize params, content, sport_class: Sport::Show, event_class: Event::Show
+    def initialize params, content, sport_show_class: Sports::Show, event_show_class: Events::Show
       @params  = params
       @content = content
+      @sport_show_class = sport_show_class
+      @event_show_class = event_show_class
     end
 
     def call
-      event["outcomes"]
+      existing_event["outcomes"]
     end
 
     private
 
     def sport
-      sport = show_sport_class.new params, content
+      sport = sport_show_class.new params, content
       sport.call
     end
 
     def event
-      event = show_event_class.new params, sport
+      event = event_show_class.new params, sport
       event.call
     end
 
-    attr_reader :params, :content
+    def existing_event
+      event || NullEvent.new
+    end
+
+    attr_reader :params, :content, :sport_show_class, :event_show_class
   end
 end
