@@ -1,18 +1,18 @@
 module Sports
   class Get
-    def initialize api_content
-      @api_content = api_content
+    def initialize content
+      @content = content
     end
 
     def call
-      api_content["sports"].map do |sport|
+      content["sports"].map do |sport|
         sport["title"]
       end
     end
 
     private
 
-    attr_reader :api_content
+    attr_reader :content
   end
 end
 #what else can content be? nil etc
