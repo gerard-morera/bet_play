@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     scope module: "v1" do
       resources :sports, only: [:index] do
         resources :events, only: [:index] do
-          resources :outcome, only: [:index]
+          resources :outcomes, only: [:index]
         end
       end
     end

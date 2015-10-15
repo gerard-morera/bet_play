@@ -6,6 +6,7 @@ module Outcomes
     end
 
     def call
+      event["outcomes"]
     end
 
     private

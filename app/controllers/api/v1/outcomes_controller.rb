@@ -2,6 +2,7 @@ module Api
   module V1
     class OutcomesController < ApplicationController
       def index
+        binding.pry
         getter   = Outcomes::Get.new outcomes_params, content
         outcomes = getter.call
 
@@ -11,12 +12,12 @@ module Api
       private
 
       def outcomes_params
-        Params::OutcomesParams.new params
+        OutcomesParams.new params
       end
 
       def content
         content = BetVictor::Content.new
-        content.call
+        content.get
       end
     end
   end
