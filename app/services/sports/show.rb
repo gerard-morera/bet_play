@@ -7,7 +7,7 @@ module Sports
 
     def call
       content.fetch("sports").find do |sport|
-        sport["id"].to_i == id.to_i
+        sport["id"].to_i == sport_id.to_i
       end
     end
 
@@ -15,7 +15,7 @@ module Sports
 
     attr_reader :params, :content
 
-    delegate :id, to: :params
+    delegate :sport_id, to: :params
   end
 end
 

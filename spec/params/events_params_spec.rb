@@ -4,9 +4,9 @@ describe EventsParams do
   end
   subject { described_class.new raw_params }
 
-  describe 'id' do
+  describe 'sport_id' do
     it 'provides the id' do
-      expect(subject.id).to eq('101')
+      expect(subject.sport_id).to eq('101')
     end
   end
 end

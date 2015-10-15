@@ -12,7 +12,7 @@ describe Sports::Show do
   end
 
   before do
-    allow(params).to receive(:id).
+    allow(params).to receive(:sport_id).
     and_return(id)
   end
 

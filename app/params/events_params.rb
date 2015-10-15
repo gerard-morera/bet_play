@@ -3,7 +3,7 @@ class EventsParams
     @raw_params = raw_params
   end
 
-  def id
+  def sport_id
     raw_params.fetch "sport_id"
   end
 
