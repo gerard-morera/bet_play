@@ -6,7 +6,9 @@ module Events
     end
 
     def call
-      sport[:event_id]
+      sport["events"].find do |event|
+        event["event_id"]== event_id
+      end
     end
 
     private
