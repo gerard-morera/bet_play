@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'bet_victor#index'
+
   scope module: "api" do
     scope module: "v1" do
       resources :sports, only: [:index] do
