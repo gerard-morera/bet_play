@@ -4,7 +4,8 @@ window.BetVictor = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new sportsRouter()
+    Backbone.history.start()
   }
 };
 

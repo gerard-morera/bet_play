@@ -1,3 +1,9 @@
-BetVictor.Routers.Sports = Backbone.Router.extend({
-  
+var sportsRouter = Backbone.Router.extend({
+  routes: {
+    'sports': "sports"  
+  },
+  sports: function() {
+    console.log("jhsbdkjsdbs")
+  }
+
 });
