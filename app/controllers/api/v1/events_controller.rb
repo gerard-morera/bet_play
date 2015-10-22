@@ -16,7 +16,7 @@ module Api
 
       def content
         content = BetVictor::Content.new
-        content.call
+        content.get
       end
     end
   end
