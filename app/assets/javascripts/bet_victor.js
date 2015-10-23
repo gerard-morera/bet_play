@@ -1,4 +1,3 @@
-  console.log("nikdsjds")
 window.BetVictor = {
   // Models: {},
   // Collections: {},
@@ -11,5 +10,6 @@ window.BetVictor = {
 };
 
 $(document).ready(function(){
+
   BetVictor.initialize();
 });

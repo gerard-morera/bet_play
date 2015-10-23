@@ -1,4 +1,4 @@
 var sportCollection = Backbone.Collection.extend({
-  model: sportModel
+  model: sportModel,
   url: 'sports'
 });
