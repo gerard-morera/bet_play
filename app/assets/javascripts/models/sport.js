@@ -1,3 +1,6 @@
-BetVictor.Models.Sport = Backbone.Model.extend({
-
+var sportModel = Backbone.Model.extend({
+  defaults: {
+    title: ''
+    id: ''
+  }
 });

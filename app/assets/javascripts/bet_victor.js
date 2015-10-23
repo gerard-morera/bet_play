@@ -1,11 +1,12 @@
+  console.log("nikdsjds")
 window.BetVictor = {
-  Models: {},
-  Collections: {},
-  Views: {},
-  Routers: {},
+  // Models: {},
+  // Collections: {},
+  // Views: {},
+  // Routers: {},
+
   initialize: function() {
-    new sportsRouter()
-    Backbone.history.start()
+    new sportDisplayer();
   }
 };
 
