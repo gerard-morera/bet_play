@@ -1,0 +1,2 @@
+module BetVictorHelper
+end
