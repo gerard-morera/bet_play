@@ -6,7 +6,7 @@ module Sports
 
     def call
       content["sports"].map do |sport|
-        sport["title"]
+        sport.slice("id", "title")
       end
     end
 
@@ -15,4 +15,3 @@ module Sports
     attr_reader :content
   end
 end
-#what else can content be? nil etc
