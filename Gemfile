@@ -37,6 +37,8 @@ group :development, :test do
   gem 'pry-coolline'
   
   gem 'rspec-rails'
+
+  gem 'selenium-webdriver'
 end
 
 group :test do
