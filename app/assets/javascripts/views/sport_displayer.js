@@ -1,5 +1,5 @@
 var sportDisplayer = Backbone.View.extend({
-  el: '.sports',
+  el: '.sport',
 
   initialize: function() {
     var self = this
