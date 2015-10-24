@@ -11,7 +11,7 @@ RSpec.describe "CanGetEvents", type: :request do
     before do
       allow(BetVictor::Content).to receive(:new).
         and_return(content_instance)
-      allow(content_instance).to receive(:call).
+      allow(content_instance).to receive(:get).
         and_return(content)
     end
 

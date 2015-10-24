@@ -22,7 +22,7 @@ RSpec.describe "CanListSports", type: :request do
 
     it "returns the sports available in the external service" do
       get sports_path
-      expect(response.body).to eq("[\"Football\",\"Tenis\"]")
+      expect(response.body).to eq("[{\"id\":101,\"title\":\"Football\"},{\"id\":100,\"title\":\"Tenis\"}]")
     end
   end
 end
