@@ -2,10 +2,10 @@ module Api
   module V1
     class SportsController < ApplicationController
       def index
-        # getter = Sports::Get.new content
-        # sports = getter.call
-        render json: [{title: "futbol"}, {title: "tennis"}]
-        # render json: sports
+        getter = Sports::Get.new content
+        sports = getter.call
+        
+        render json: sports
       end
 
       private 
