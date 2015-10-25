@@ -6,41 +6,41 @@ var appRoutes = Backbone.Router.extend({
   },
 
   getSports: function() {
-    BetVictor.sportDisp = new sportDisplayer();
-    BetVictor.sportDisp.show();
+    app.sportDisp = new sportDisplayer();
+    app.sportDisp.show();
 
-    if(BetVictor.eventDisp){
-      BetVictor.eventDisp.remove();
+    if(app.eventDisp){
+      app.eventDisp.remove();
     } 
-    if(BetVictor.outcomeDisp) {
-      BetVictor.outcomeDisp.remove();
+    if(app.outcomeDisp) {
+      app.outcomeDisp.remove();
     }
   },
 
   getEvents: function(id) {
-    BetVictor.eventDisp  = new eventDisplayer();
-    BetVictor.eventDisp.show();
+    app.eventDisp  = new eventDisplayer();
+    app.eventDisp.show();
 
-    BetVictor.eventDisp.fetch(id);
+    app.eventDisp.fetch(id);
 
-    if(BetVictor.sportDisp){
-      BetVictor.sportDisp.remove();
+    if(app.sportDisp){
+      app.sportDisp.remove();
     } 
-    if(BetVictor.outcomeDisp) {
-      BetVictor.outcomeDisp.remove();
+    if(app.outcomeDisp) {
+      app.outcomeDisp.remove();
     }
   },
 
   getOutcomes: function(sport_id, event_id) {
-    BetVictor.outcomeDisp  = new outcomeDisplayer;
-    BetVictor.outcomeDisp.show();
-    BetVictor.outcomeDisp.fetch(sport_id, event_id);
+    app.outcomeDisp  = new outcomeDisplayer;
+    app.outcomeDisp.show();
+    app.outcomeDisp.fetch(sport_id, event_id);
 
-    if(BetVictor.sportDisp){
-      BetVictor.sportDisp.remove();
+    if(app.sportDisp){
+      app.sportDisp.remove();
     } 
-    if(BetVictor.eventDisp) {
-      BetVictor.eventDisp.remove();
+    if(app.eventDisp) {
+      app.eventDisp.remove();
     }
   }
 });
