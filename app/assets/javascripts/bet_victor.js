@@ -1,6 +1,6 @@
 window.BetVictor = {
   initialize: function() {
-    new sportDisplayer();
+    this.sportDisp = new sportDisplayer();
     
     router = new appRoutes();
     Backbone.history.start()

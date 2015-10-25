@@ -19,6 +19,10 @@ var sportDisplayer = Backbone.View.extend({
       model: sport
     });
     this.$el.append(sportV.render().el);
+  },
+
+  remove: function() {
+    this.$el.hide();
   }
 
   // events:{

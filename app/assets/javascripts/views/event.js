@@ -6,7 +6,7 @@ var eventView = Backbone.View.extend({
     this.template = _.template($('#eventTemplate').html());
   },
 
-  render: function() {
+  render: function() {  
     this.$el.html(this.template(this.model.attributes));
     return this;
   }

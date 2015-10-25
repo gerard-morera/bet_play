@@ -4,8 +4,8 @@ var appRoutes = Backbone.Router.extend({
   },
 
   getEvents: function(e) {
-    eventDisp  = new eventDisplayer
-    eventDisp.fetch(e)
+    var eventDisp  = new eventDisplayer;
+    eventDisp.fetch(e);
+    BetVictor.sportDisp.remove()
   }
-
 });
