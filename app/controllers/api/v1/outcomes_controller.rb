@@ -4,7 +4,7 @@ module Api
       def index
         getter   = Outcomes::Get.new outcomes_params, content
         outcomes = getter.call
-
+        binding.pry
         render json: outcomes
       end
 

@@ -25,5 +25,9 @@ var eventDisplayer = Backbone.View.extend({
 
   noRender: function() {
     debugger
+  },
+
+  remove: function() {
+    this.$el.hide();
   }
 });
