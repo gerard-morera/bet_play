@@ -11,11 +11,10 @@ var appRoutes = Backbone.Router.extend({
     BetVictor.sportDisp.remove();
   },
 
-  getOutcomes: function(event_id, sport_id) {
+  getOutcomes: function(sport_id, event_id) {
     var outcomeDisp  = new outcomeDisplayer;
 
-    outcomeDisp.fetch(event_id, sport_id);
-    console.log
+    outcomeDisp.fetch(sport_id, event_id);
     BetVictor.eventDisp.remove();
   }
 });

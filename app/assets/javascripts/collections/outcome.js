@@ -1,5 +1,5 @@
 var outcomeCollection = Backbone.Collection.extend({
-  initialize: function(event_id, sport_id) {
+  initialize: function(sport_id, event_id) {
     this.event_id = event_id
     this.sport_id = sport_id
   },
