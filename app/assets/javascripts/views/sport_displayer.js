@@ -23,18 +23,27 @@ var sportDisplayer = Backbone.View.extend({
 
   remove: function() {
     this.$el.hide();
+  },
+
+  show: function() {
+    this.$el.show();
   }
 
-  // events:{
-  //   'click #showEvents':'eventcaller'
+  // events: {
+  //   'click #showsports': 'sportCaller',
+  //   'click #showEvents': 'eventCaller'
   // },
 
-  // eventcaller: function(e) {
+  // sportCaller: function(e) {
+  //   debugger;
+  //   e.preventDefault();
+  //   BetVictor.router.navigate("sports", true);
+  // }, 
+
+  // eventCaller: function(e) {
   //   e.preventDefault(e);
 
-  //   id = $(e.currentTarget).attr("eventid")
-
-  //   BetVictor.routes.route("sports/:id/events")
-  //   // BetVictor.eventDisp.fetch(eventId)
+  //   this.id = $(e.currentTarget).attr("eventid")
+  //   BetVictor.router.navigate("sports/" + this.id + "/events", true)
   // }
 });

@@ -29,5 +29,15 @@ var eventDisplayer = Backbone.View.extend({
 
   remove: function() {
     this.$el.hide();
-  }
+  },
+
+  // events:{
+  //   'click #showsports': 'sportCaller'
+  // },
+
+  // sportCaller: function(e) {
+  //   debugger;
+  //   e.preventDefault();
+  //   BetVictor.router.navigate("sports", true);
+  // }, 
 });

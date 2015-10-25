@@ -1,14 +1,30 @@
 var appRoutes = Backbone.Router.extend({
   routes: {
-   "sports/:id/events": "getEvents",
-   "sports/:sport_id/events/:event_id/outcomes": "getOutcomes"
+    "sports": "getSports",
+    "sports/:id/events": "getEvents",
+    "sports/:sport_id/events/:event_id/outcomes": "getOutcomes"
   },
 
-  getEvents: function(e) {
-    BetVictor.eventDisp  = new eventDisplayer;
-    
-    BetVictor.eventDisp.fetch(e);
-    BetVictor.sportDisp.remove();
+  getSports: function() {
+    BetVictor.sportDisp = new sportDisplayer();
+
+    BetVictor.sportDisp.show();
+
+    if(BetVictor.eventDisp){
+      BetVictor.eventDisp.remove();
+    } else if(BetVictor.outcomeDisp) {
+      BetVictor.outcomeDisp.remove();
+    }
+  },
+
+  getEvents: function(id) {
+    BetVictor.eventDisp  = new eventDisplayer();
+    debugger;
+    BetVictor.eventDisp.fetch(id);
+
+    if(BetVictor.sportDisp){
+      BetVictor.sportDisp.remove();
+    }
   },
 
   getOutcomes: function(sport_id, event_id) {

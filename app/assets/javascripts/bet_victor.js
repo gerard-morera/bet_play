@@ -1,9 +1,9 @@
 window.BetVictor = {
   initialize: function() {
-    this.sportDisp = new sportDisplayer();
-    
-    router = new appRoutes();
+    this.router = new appRoutes();
     Backbone.history.start()
+
+    this.router.navigate("sports", true)
   },
 };
 
