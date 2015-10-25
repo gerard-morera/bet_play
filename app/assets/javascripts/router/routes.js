@@ -7,7 +7,6 @@ var appRoutes = Backbone.Router.extend({
 
   getSports: function() {
     app.sport_displayer = new sportDisplayer();
-    app.sport_displayer.show();
 
     if(app.event_displayer){
       app.event_displayer.remove();
@@ -19,7 +18,6 @@ var appRoutes = Backbone.Router.extend({
 
   getEvents: function(id) {
     app.event_displayer  = new eventDisplayer();
-    app.event_displayer.show();
 
     app.event_displayer.fetch(id);
 
@@ -33,7 +31,7 @@ var appRoutes = Backbone.Router.extend({
 
   getOutcomes: function(sport_id, event_id) {
     app.outcome_displayer  = new outcomeDisplayer;
-    app.outcome_displayer.show();
+
     app.outcome_displayer.fetch(sport_id, event_id);
 
     if(app.sport_displayer){

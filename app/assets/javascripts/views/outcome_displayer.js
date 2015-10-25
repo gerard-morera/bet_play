@@ -1,10 +1,14 @@
 var outcomeDisplayer = Backbone.View.extend({
   el: '.outcome',
 
+  initialize: function() {
+    this.$el.empty();
+    this.show();
+  },
+
   fetch: function(sport_id, event_id) {
     var self = this
-    
-    this.$el.empty();
+
     this.collection = new outcomeCollection(sport_id, event_id);
     this.collection.fetch().then(function(){
       self.render()

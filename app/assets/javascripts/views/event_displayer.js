@@ -1,9 +1,14 @@
 var eventDisplayer = Backbone.View.extend({
   el: '.event',
 
-  fetch: function(id) {
+  initialize: function() {
     this.$el.empty();
+    this.show();
+  },
+
+  fetch: function(id) {
     var self = this
+
     this.collection = new eventCollection(id);
     this.collection.fetch().then(function(){
       self.render()
@@ -12,14 +17,14 @@ var eventDisplayer = Backbone.View.extend({
     });
   },
   render: function() {
-    this.collection.each(function(evnt) {
-      this.renderEvent(evnt);
+    this.collection.each(function(event) {
+      this.renderEvent(event);
     }, this);
   },
 
-  renderEvent: function(evnt) {
+  renderEvent: function(event) {
     var eventV = new eventView({
-      model: evnt
+      model: event
     });
     this.$el.append(eventV.render().el);
   },
@@ -35,14 +40,4 @@ var eventDisplayer = Backbone.View.extend({
   show: function() {
     this.$el.show();
   }
-
-  // events:{
-  //   'click #showsports': 'sportCaller'
-  // },
-
-  // sportCaller: function(e) {
-  //   debugger;
-  //   e.preventDefault();
-  //   app.router.navigate("sports", true);
-  // }, 
 });
