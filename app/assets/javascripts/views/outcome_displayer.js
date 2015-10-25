@@ -30,5 +30,9 @@ var outcomeDisplayer = Backbone.View.extend({
 
   remove: function() {
     this.$el.hide();
+  },
+
+  show: function() {
+    this.$el.show();
   }
 });

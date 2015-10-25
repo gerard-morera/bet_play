@@ -19,7 +19,8 @@ var appRoutes = Backbone.Router.extend({
 
   getEvents: function(id) {
     BetVictor.eventDisp  = new eventDisplayer();
-    debugger;
+    BetVictor.eventDisp.show();
+
     BetVictor.eventDisp.fetch(id);
 
     if(BetVictor.sportDisp){
@@ -29,6 +30,7 @@ var appRoutes = Backbone.Router.extend({
 
   getOutcomes: function(sport_id, event_id) {
     var outcomeDisp  = new outcomeDisplayer;
+    outcomeDisp.show();
 
     outcomeDisp.fetch(sport_id, event_id);
     BetVictor.eventDisp.remove();

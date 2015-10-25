@@ -31,6 +31,10 @@ var eventDisplayer = Backbone.View.extend({
     this.$el.hide();
   },
 
+  show: function() {
+    this.$el.show();
+  }
+
   // events:{
   //   'click #showsports': 'sportCaller'
   // },
