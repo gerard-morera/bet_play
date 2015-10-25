@@ -8,7 +8,7 @@ module Events
 
     def call
       existing_sport["events"].map do |event|
-        event["event_id"]
+        event.slice("event_id", "title", "is_virtual")
       end.compact
     end
 

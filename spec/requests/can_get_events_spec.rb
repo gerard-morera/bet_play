@@ -23,7 +23,7 @@ RSpec.describe "CanGetEvents", type: :request do
 
       it "returns a list of events" do
         get sport_events_path(:sport_id => "101")
-        expect(response.body).to eq("[1728292,23873287]")
+        expect(response.body).to eq("[{\"event_id\":1728292},{\"event_id\":23873287}]")
       end
     end
 

@@ -6,7 +6,6 @@ var eventCollection = Backbone.Collection.extend({
   model: eventModel,
 
   url: function() {
-    debugger;
     return ('/sports/' + this.id + '/events');
   }
 });

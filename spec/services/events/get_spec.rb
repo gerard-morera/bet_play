@@ -8,7 +8,7 @@ describe Events::Get do
 
   let(:selected_sport) { double 'selected_sport', call: sport}
   let(:sport) do 
-    { "id"=>100, "events" => [{"event_id"=>292582210},{}]}
+    { "id"=>100, "events" => [{"event_id"=>292582210, "tile" => "Barça-Madrid", "is_virtual" => "false"},{}]}
   end
 
   before do
@@ -22,7 +22,7 @@ describe Events::Get do
   describe 'call' do
     context 'when sport has value' do
       it 'gets the events ids' do 
-        expect(subject.call).to eq([292582210])
+        expect(subject.call).to eq([{"event_id"=>292582210, "is_virtual"=>"false"}, {}])
       end
     end
 
