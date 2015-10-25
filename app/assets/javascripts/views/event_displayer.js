@@ -1,9 +1,10 @@
 var eventDisplayer = Backbone.View.extend({
   el: '.event',
 
-  initialize: function() {
+  initialize: function(id) {
     this.$el.empty();
     this.show();
+    this.fetch(id);
   },
 
   fetch: function(id) {
