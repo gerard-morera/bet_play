@@ -3,6 +3,7 @@ var sportDisplayer = Backbone.View.extend({
 
   initialize: function() {
     var self = this
+    this.$el.empty();
     this.collection = new sportCollection();
     this.collection.fetch().then(function(){
     self.render()});

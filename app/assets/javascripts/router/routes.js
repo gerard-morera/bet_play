@@ -7,12 +7,12 @@ var appRoutes = Backbone.Router.extend({
 
   getSports: function() {
     BetVictor.sportDisp = new sportDisplayer();
-
     BetVictor.sportDisp.show();
 
     if(BetVictor.eventDisp){
       BetVictor.eventDisp.remove();
-    } else if(BetVictor.outcomeDisp) {
+    } 
+    if(BetVictor.outcomeDisp) {
       BetVictor.outcomeDisp.remove();
     }
   },
@@ -25,14 +25,22 @@ var appRoutes = Backbone.Router.extend({
 
     if(BetVictor.sportDisp){
       BetVictor.sportDisp.remove();
+    } 
+    if(BetVictor.outcomeDisp) {
+      BetVictor.outcomeDisp.remove();
     }
   },
 
   getOutcomes: function(sport_id, event_id) {
-    var outcomeDisp  = new outcomeDisplayer;
-    outcomeDisp.show();
+    BetVictor.outcomeDisp  = new outcomeDisplayer;
+    BetVictor.outcomeDisp.show();
+    BetVictor.outcomeDisp.fetch(sport_id, event_id);
 
-    outcomeDisp.fetch(sport_id, event_id);
-    BetVictor.eventDisp.remove();
+    if(BetVictor.sportDisp){
+      BetVictor.sportDisp.remove();
+    } 
+    if(BetVictor.eventDisp) {
+      BetVictor.eventDisp.remove();
+    }
   }
 });
