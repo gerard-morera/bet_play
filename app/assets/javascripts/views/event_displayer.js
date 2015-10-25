@@ -1,4 +1,5 @@
 var eventDisplayer = Backbone.View.extend({
+  el: '.event',
 
   fetch: function(id) {
     var self = this
@@ -10,7 +11,16 @@ var eventDisplayer = Backbone.View.extend({
     });
   },
   render: function() {
-    debugger
+    this.collection.each(function(ev) {
+      this.renderEvent(ev);
+    }, this);
+  },
+
+  renderEvent: function(ev) {
+    var eventV = new eventView({
+      model: ev
+    });
+    this.$el.append(eventV.render().el);
   },
 
   noRender: function() {

@@ -19,7 +19,7 @@ var sportDisplayer = Backbone.View.extend({
       model: sport
     });
     this.$el.append(sportV.render().el);
-  },
+  }
 
   // events:{
   //   'click #showEvents':'eventcaller'

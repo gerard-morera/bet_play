@@ -1,4 +1,5 @@
 <div class="sport"></div>
+<div class="event"></div>
 
 <script id="sportTemplate" type="text/template">
   <ul>
@@ -7,3 +8,14 @@
     </li>
   </ul>
 </script>
+
+
+<script id="eventTemplate" type="text/template">
+  <ul>
+    <li>Title: <%%= title %>
+    <li>Is virtual? <%%= is_virtual %>
+    <a href="#sports/<%%=id%>/events/" class="events">Life events</a>
+    </li>
+  </ul>
+</script>
+
