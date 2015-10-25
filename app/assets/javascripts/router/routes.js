@@ -6,41 +6,41 @@ var appRoutes = Backbone.Router.extend({
   },
 
   getSports: function() {
-    app.sportDisp = new sportDisplayer();
-    app.sportDisp.show();
+    app.sport_displayer = new sportDisplayer();
+    app.sport_displayer.show();
 
-    if(app.eventDisp){
-      app.eventDisp.remove();
+    if(app.event_displayer){
+      app.event_displayer.remove();
     } 
-    if(app.outcomeDisp) {
-      app.outcomeDisp.remove();
+    if(app.outcome_displayer) {
+      app.outcome_displayer.remove();
     }
   },
 
   getEvents: function(id) {
-    app.eventDisp  = new eventDisplayer();
-    app.eventDisp.show();
+    app.event_displayer  = new eventDisplayer();
+    app.event_displayer.show();
 
-    app.eventDisp.fetch(id);
+    app.event_displayer.fetch(id);
 
-    if(app.sportDisp){
-      app.sportDisp.remove();
+    if(app.sport_displayer){
+      app.sport_displayer.remove();
     } 
-    if(app.outcomeDisp) {
-      app.outcomeDisp.remove();
+    if(app.outcome_displayer) {
+      app.outcome_displayer.remove();
     }
   },
 
   getOutcomes: function(sport_id, event_id) {
-    app.outcomeDisp  = new outcomeDisplayer;
-    app.outcomeDisp.show();
-    app.outcomeDisp.fetch(sport_id, event_id);
+    app.outcome_displayer  = new outcomeDisplayer;
+    app.outcome_displayer.show();
+    app.outcome_displayer.fetch(sport_id, event_id);
 
-    if(app.sportDisp){
-      app.sportDisp.remove();
+    if(app.sport_displayer){
+      app.sport_displayer.remove();
     } 
-    if(app.eventDisp) {
-      app.eventDisp.remove();
+    if(app.event_displayer) {
+      app.event_displayer.remove();
     }
   }
 });
