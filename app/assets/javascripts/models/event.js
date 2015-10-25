@@ -1,7 +1,8 @@
 var eventModel = Backbone.Model.extend({
   defaults: {
     title: '',
-    id: '',
-    is_virtual: ''
+    event_id: '',
+    is_virtual: '',
+    sport_id: ''
   }
 });

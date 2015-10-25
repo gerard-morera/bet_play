@@ -4,7 +4,7 @@ var appRoutes = Backbone.Router.extend({
   },
 
   getEvents: function(e) {
-    eventDisp = new eventDisplayer
+    eventDisp  = new eventDisplayer
     eventDisp.fetch(e)
   }
 

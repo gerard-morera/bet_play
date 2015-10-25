@@ -12,9 +12,10 @@
 
 <script id="eventTemplate" type="text/template">
   <ul>
-    <li>Title: <%%= title %>
-    <li>Is virtual? <%%= is_virtual %>
-    <a href="#sports/<%%=id%>/events/" class="events">Life events</a>
+    <li>
+      Title: <%%= title %><br>
+      Is virtual? <%%= is_virtual %><br>
+      <a href="#sports/<%%=sport_id%>/events/<%%=event_id%>/outcomes" class="outcomes">Life outcomes</a>
     </li>
   </ul>
 </script>
