@@ -2,11 +2,14 @@ var sportDisplayer = Backbone.View.extend({
   el: '.sport',
 
   initialize: function() {
-    var self = this
-
     this.$el.empty();
     this.show();
-    this.clean();
+    this.cleanOtherViews();
+    this.fetch();
+  },
+
+  fetch: function() {
+    var self = this
 
     this.collection = new sportCollection();
     this.collection.fetch().then(function(){
@@ -26,7 +29,7 @@ var sportDisplayer = Backbone.View.extend({
     this.$el.append(sportV.render().el);
   },
 
-  clean: function() {
+  cleanOtherViews: function() {
     if(app.event_displayer){
       app.event_displayer.remove();
     } 

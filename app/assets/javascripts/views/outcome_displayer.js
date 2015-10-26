@@ -3,9 +3,9 @@ var outcomeDisplayer = Backbone.View.extend({
 
   initialize: function(sport_id, event_id) {
     this.$el.empty();
+    this.cleanOtherViews()
     this.show();
     this.fetch(sport_id, event_id);
-    this.clean()
   },
 
   fetch: function(sport_id, event_id) {
@@ -35,7 +35,7 @@ var outcomeDisplayer = Backbone.View.extend({
     debugger
   },
 
-  clean: function() {
+  cleanOtherViews: function() {
     if(app.sport_displayer){
       app.sport_displayer.remove();
     } 
