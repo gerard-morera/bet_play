@@ -15,7 +15,7 @@ var outcomeDisplayer = Backbone.View.extend({
     this.collection.fetch().then(function(){
       self.render()
     }, function() {
-      noRender();
+      self.$el.append("We are having problems connecting to the server");
     });
   },
   render: function() {
@@ -29,10 +29,6 @@ var outcomeDisplayer = Backbone.View.extend({
       model: outcome
     });
     this.$el.append(outcomeV.render().el);
-  },
-
-  noRender: function() {
-    debugger
   },
 
   cleanOtherViews: function() {

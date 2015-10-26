@@ -15,7 +15,7 @@ var eventDisplayer = Backbone.View.extend({
     this.collection.fetch().then(function(){
       self.render()
     }, function() {
-      noRender();
+      self.$el.append("We are having problems connecting to the server");
     });
   },
   
@@ -39,10 +39,6 @@ var eventDisplayer = Backbone.View.extend({
     if(app.outcome_displayer) {
       app.outcome_displayer.remove();
     }
-  },
-
-  noRender: function() {
-    debugger
   },
 
   remove: function() {
