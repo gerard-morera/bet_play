@@ -10,7 +10,7 @@ feature 'sports displayment' do
     visit '/'
 
     wait_for_ajax
-
+    
     expect(page).to have_text("Football")
   end
 end
