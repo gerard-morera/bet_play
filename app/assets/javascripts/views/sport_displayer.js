@@ -6,6 +6,7 @@ var sportDisplayer = Backbone.View.extend({
 
     this.$el.empty();
     this.show();
+    this.clean();
 
     this.collection = new sportCollection();
     this.collection.fetch().then(function(){
@@ -23,6 +24,15 @@ var sportDisplayer = Backbone.View.extend({
       model: sport
     });
     this.$el.append(sportV.render().el);
+  },
+
+  clean: function() {
+    if(app.event_displayer){
+      app.event_displayer.remove();
+    } 
+    if(app.outcome_displayer) {
+      app.outcome_displayer.remove();
+    }
   },
 
   remove: function() {
