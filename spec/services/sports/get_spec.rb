@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe Sports::Get do 
   subject { Sports::Get.new api_content}
 
@@ -10,12 +12,27 @@ describe Sports::Get do
   }
 
   describe 'call' do
-    it 'filters the sports of the content' do
-      expect(subject.call).to eq(
-      [
-        { "id" => 101, "title" => "Football" }, 
-        { "id" => 100, "title" => "Tenis" }
-      ])
+    context "when content hash has sports" do
+      it 'filters the sports of the content' do
+        expect(subject.call).to eq(
+        [
+          { "id" => 101, "title" => "Football" }, 
+          { "id" => 100, "title" => "Tenis" }
+        ])
+      end
+    end
+
+
+    context "when content hash has no sports" do
+      let(:api_content) { double 'message' }
+      
+      before do 
+        allow(api_content).to receive(:fetch)
+      end
+      
+      it "return the content" do
+        expect(subject.call).to eq(api_content)
+      end
     end
   end
 end
