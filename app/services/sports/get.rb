@@ -5,9 +5,11 @@ module Sports
     end
 
     def call
-      content["sports"].map do |sport|
+      content.fetch("sports").map do |sport|
         sport.slice("id", "title")
       end
+    rescue
+      content
     end
 
     private

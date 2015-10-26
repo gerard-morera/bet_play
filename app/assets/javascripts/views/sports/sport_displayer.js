@@ -14,8 +14,6 @@ var sportDisplayer = Backbone.View.extend({
     this.collection = new sportCollection();
     this.collection.fetch().then(function(){
     self.render()
-    }, function() {
-      self.$el.append("We are having problems connecting to the server");
     });
   },
 
