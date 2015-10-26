@@ -1,7 +1,36 @@
 <div class="sport"></div>
+<div class="event"></div>
+<div class="outcome"></div>
+
+<a href="#sports" class="showsports">Sports<a>
 
 <script id="sportTemplate" type="text/template">
   <ul>
-    <li><%%= title %></li>
+    <li><%%= title %>
+    <a href="#sports/<%%=id%>/events" class="events">Life events</a>
+    </li>
   </ul>
 </script>
+
+
+<script id="eventTemplate" type="text/template">
+  <ul>
+    <li>
+      Title: <%%= title %><br>
+      Is virtual? <%%= is_virtual %><br>
+      <a href="#sports/<%%=sport_id%>/events/<%%=event_id%>/outcomes" class="outcomes">Life outcomes</a>
+    </li>
+  </ul>
+</script>
+
+<script id="outcomeTemplate" type="text/template">
+  <ul>
+    <li>
+      Description: <%%= description %><br>
+      Price decimal <%%= price_decimal %><br>
+      Price <%%= price %><br>
+    </li>
+  </ul>
+</script>
+
+

@@ -8,7 +8,7 @@ module Events
 
     def call
       existing_sport["events"].map do |event|
-        event["event_id"]
+        event.slice("event_id", "title", "is_virtual").merge sport_id
       end.compact
     end
 
@@ -20,6 +20,10 @@ module Events
 
     def sport
       @sport ||=  sport_class.new(params, content).call
+    end
+
+    def sport_id
+      { "sport_id" => params.sport_id }
     end
 
     attr_reader :params, :content, :sport_class
