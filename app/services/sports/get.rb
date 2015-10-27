@@ -1,3 +1,4 @@
+
 module Sports
   class Get
     def initialize content
@@ -9,6 +10,7 @@ module Sports
         sport.slice("id", "title")
       end
     rescue
+      
       content
     end
 

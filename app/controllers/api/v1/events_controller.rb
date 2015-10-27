@@ -4,7 +4,7 @@ module Api
       def index
         getter = Events::Get.new(events_params, content)
         events = getter.call
-        
+
         render json: events
       end
 

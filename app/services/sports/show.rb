@@ -10,6 +10,7 @@ module Sports
         sport["id"].to_i == sport_id.to_i
       end
     rescue
+      
       content
     end
 

@@ -14,8 +14,6 @@ var eventDisplayer = Backbone.View.extend({
     this.collection = new eventCollection(id);
     this.collection.fetch().then(function(){
       self.render()
-    }, function() {
-      self.$el.append("We are having problems connecting to the server");
     });
   },
   
