@@ -23,7 +23,7 @@ describe Sports::Get do
     end
 
 
-    context "when content hash has no sports" do
+    context "when content hash has not key sports" do
       let(:api_content) { double 'message' }
       
       before do 

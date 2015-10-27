@@ -9,6 +9,8 @@ module Sports
       content.fetch("sports").find do |sport|
         sport["id"].to_i == sport_id.to_i
       end
+    rescue
+      content
     end
 
     private
@@ -18,5 +20,3 @@ module Sports
     delegate :sport_id, to: :params
   end
 end
-
-#what else can content be? nil etc

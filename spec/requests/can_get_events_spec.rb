@@ -15,22 +15,40 @@ RSpec.describe "CanGetEvents", type: :request do
         and_return(content)
     end
 
-    context "with events on the external API" do
+    context "with the external API working" do
+      context "with events on the external API" do
+        it "has 200 response status" do
+          get sport_events_path(:sport_id => "101")
+          expect(response).to have_http_status(200)
+        end
+
+        it "returns a list of events" do
+          get sport_events_path(:sport_id => "101")
+          expect(response.body).to eq("[{\"event_id\":1728292,\"sport_id\":\"101\"},{\"event_id\":23873287,\"sport_id\":\"101\"}]")
+        end
+      end
+
+      context "without events on the external API" do
+        it "returns an empty array" do
+          get sport_events_path(:sport_id => "000")
+          expect(response.body).to eq("[]")
+        end
+      end
+    end
+
+    context "with the external API not working" do
+      let(:content) do
+        {"error_message"=>"We are having problems connecting to the server"}
+      end
+
       it "has 200 response status" do
         get sport_events_path(:sport_id => "101")
         expect(response).to have_http_status(200)
       end
 
-      it "returns a list of events" do
+      it "returns a message error" do
         get sport_events_path(:sport_id => "101")
-        expect(response.body).to eq("[{\"event_id\":1728292,\"sport_id\":\"101\"},{\"event_id\":23873287,\"sport_id\":\"101\"}]")
-      end
-    end
-
-    context "without events on the external API" do
-      it "returns an empty array" do
-        get sport_events_path(:sport_id => "000")
-        expect(response.body).to eq("[]")
+        expect(response.body).to eq("{\"error_message\":\"We are having problems connecting to the server\"}")
       end
     end
   end
