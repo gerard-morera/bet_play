@@ -20,10 +20,10 @@ feature 'events display' do
 
         click_link 'Football'
 
-          expect(page).to have_css(".title", :text => "Title: Barça-Madrid")
-          expect(page).to have_css(".isvirtual", :text => "Is virtual? false")
+        expect(page).to have_css(".title", :text => "Title: Barça-Madrid")
+        expect(page).to have_css(".isvirtual", :text => "Is virtual? false")
 
-          expect(page).to have_content
+        expect(page).to have_content
       end
     end
   end
