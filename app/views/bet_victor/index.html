@@ -30,9 +30,13 @@
 <script id="outcomeTemplate" type="text/template">
   <ul>
     <li>
-      Description: <%%= description %><br>
-      Price decimal <%%= price_decimal %><br>
-      Price <%%= price %><br>
+    <%% if(description) { %>
+      <p class="description">  Description: <%%= description %></p>
+      <p class="pricedecimal"> Price decimal <%%= price_decimal %></p>
+      <p class="price">Price <%%= price %></p>
+    <%% }else { %>
+      <%%= error_message %>
+    <%% } %>
     </li>
   </ul>
 </script>

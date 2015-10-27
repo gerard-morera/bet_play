@@ -8,7 +8,10 @@ module Outcomes
     end
 
     def call
-      existing_event["outcomes"]
+      existing_event.fetch("outcomes")
+    rescue
+
+      existing_event
     end
 
     private

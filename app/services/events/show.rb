@@ -6,9 +6,11 @@ module Events
     end
 
     def call
-      existent_sport["events"].find do |event|
+      existent_sport.fetch("events").find do |event|
         event["event_id"].to_i == event_id.to_i
       end
+    rescue
+      existent_sport
     end
 
     private
