@@ -10,6 +10,7 @@ module Events
         event["event_id"].to_i == event_id.to_i
       end
     rescue
+      
       existent_sport
     end
 

@@ -1,8 +1,5 @@
 describe Sports::Show do
   let(:params) { double 'params' }
-
-  subject { described_class.new params, content }
-
   let(:id) { 100 }
   let(:content) do
     { 
@@ -10,6 +7,8 @@ describe Sports::Show do
                    {"id" =>200, "title" => "Baseball"}]
     }
   end
+
+  subject { described_class.new params, content }
 
   before do
     allow(params).to receive(:sport_id).
@@ -25,6 +24,7 @@ describe Sports::Show do
 
     context 'when id does not match' do
       let(:id) { 600 }
+      
       it 'returns nil' do
         expect(subject.call).to eq nil
       end

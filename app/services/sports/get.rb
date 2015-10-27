@@ -1,4 +1,3 @@
-
 module Sports
   class Get
     def initialize content

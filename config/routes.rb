@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'bet_victor#index'
+  root to: 'page#index'
 
   scope module: "api" do
     scope module: "v1" do

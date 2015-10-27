@@ -14,10 +14,9 @@ var outcomeDisplayer = Backbone.View.extend({
     this.collection = new outcomeCollection(sport_id, event_id);
     this.collection.fetch().then(function(){
       self.render()
-    }, function() {
-      self.$el.append("We are having problems connecting to the server");
     });
   },
+
   render: function() {
     this.collection.each(function(outcome) {
       this.renderOutcome(outcome);

@@ -17,5 +17,3 @@ describe OutcomesParams do
     end
   end
 end
-
-#missing context if not value
