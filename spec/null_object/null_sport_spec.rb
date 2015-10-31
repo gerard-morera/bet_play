@@ -1,14 +1,16 @@
+require 'rails_helper'
+
 describe NullSport do
   let(:randoom_value) { 'rv' }
-  describe '[]' do
+  describe 'id' do
     it 'returns an empty array' do
-      expect(subject.[](randoom_value)).to eq([])
+      expect(subject.id).to eq("no information")
     end
   end
 
-  describe 'fetch' do
+  describe 'title' do
     it 'returns an empty array' do
-      expect(subject.fetch(randoom_value)).to eq([])
+      expect(subject.title).to eq("no information")
     end
   end
 end
