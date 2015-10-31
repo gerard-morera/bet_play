@@ -6,8 +6,6 @@ module Parsers
 
     def call
       JSON.parse(json)
-    rescue
-      { "error_message" => "We are having problems connecting to the server" }
     end
 
     private

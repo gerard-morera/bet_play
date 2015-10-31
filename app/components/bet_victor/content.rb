@@ -1,3 +1,5 @@
+require_relative '../../errors/status.rb'
+
 module BetVictor
   class Content
     PATH = '/live/en/live/list.json'
@@ -7,8 +9,11 @@ module BetVictor
     end
 
     def get 
-      parser = parser(response.body)
-      parser.call
+      if response.status == 200
+        parser(response.body).call
+      else
+        Errors::Status.new response.status
+      end
     end
 
     private 
