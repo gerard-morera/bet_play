@@ -41,8 +41,8 @@ describe BetVictor::Content do
       context 'when status is not 200' do
         let(:status) {400}
 
-        it 'returns its body parsed' do
-          expect(subject.get).to eq({ status: 400})
+        it 'raises an error' do
+          expect{subject.get}.to raise_error(StatusError)
         end
       end
     end

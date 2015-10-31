@@ -17,3 +17,5 @@ module Api
     end
   end
 end 
+
+# rescue from mirar

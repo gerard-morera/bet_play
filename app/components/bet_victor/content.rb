@@ -1,3 +1,5 @@
+class StatusError < StandardError; end
+
 module BetVictor
   class Content
     PATH = '/live/en/live/list.json'
@@ -10,7 +12,7 @@ module BetVictor
       if response.status == 200
         parser(response.body).call
       else
-       { status: response.status }
+        raise StatusError
       end
     end
 
@@ -39,3 +41,4 @@ module BetVictor
     attr_reader :parser_class
   end
 end
+
