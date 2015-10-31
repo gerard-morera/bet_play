@@ -1,9 +1,9 @@
 class NullSport
-  def fetch value
-    []
+  def id
+    "no information"
   end
 
-  def [] value
-    []
+  def title
+    "no information"
   end
 end

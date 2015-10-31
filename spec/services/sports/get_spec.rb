@@ -30,8 +30,7 @@ describe Sports::Get do
       end
     
       it "builds an error model" do
-        expect(Errors::Status).to receive(:new).
-          with(content)
+        expect(NullSport).to receive(:new)
           
         subject.call
       end

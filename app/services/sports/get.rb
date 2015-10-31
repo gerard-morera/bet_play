@@ -8,7 +8,7 @@ module Sports
       if content.has_key? "sports"
         build_sport
       else
-        build_error
+        NullSport.new
       end
     end
 
@@ -20,10 +20,6 @@ module Sports
       sports.each_with_object([]) do |sport, accum|
         accum << Sport.new(sport)
       end
-    end
-
-    def build_error
-      Errors::Status.new content
     end
 
     attr_reader :content
