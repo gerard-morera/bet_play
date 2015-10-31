@@ -7,7 +7,7 @@ describe Errors::Status do
 
   describe 'default_message' do
     it 'returns the default message' do
-      expect(subject.call).to eq( "Error in the server status: #{status}")
+      expect(subject.default_message).to eq("Error in the server status: #{status}")
     end
   end
 end

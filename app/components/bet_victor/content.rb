@@ -1,5 +1,3 @@
-require_relative '../../errors/status.rb'
-
 module BetVictor
   class Content
     PATH = '/live/en/live/list.json'
