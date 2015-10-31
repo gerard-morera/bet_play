@@ -42,7 +42,7 @@ describe BetVictor::Content do
         let(:status) {400}
 
         it 'returns its body parsed' do
-          expect(subject.get).to be_instance_of(Errors::Status)
+          expect(subject.get).to eq({ status: 400})
         end
       end
     end

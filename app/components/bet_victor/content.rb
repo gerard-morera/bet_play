@@ -10,7 +10,7 @@ module BetVictor
       if response.status == 200
         parser(response.body).call
       else
-        Errors::Status.new response.status
+       { status: response.status }
       end
     end
 

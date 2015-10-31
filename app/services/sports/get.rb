@@ -5,15 +5,26 @@ module Sports
     end
 
     def call
-      content.fetch("sports").map do |sport|
-        sport.slice("id", "title")
+      if content.has_key? "sports"
+        build_sport
+      else
+        build_error
       end
-    rescue
-      
-      content
     end
 
     private
+
+    def build_sport
+      sports = content.fetch "sports"
+
+      sports.each_with_object([]) do |sport, accum|
+        accum << Sport.new(sport)
+      end
+    end
+
+    def build_error
+      Errors::Status.new content
+    end
 
     attr_reader :content
   end
