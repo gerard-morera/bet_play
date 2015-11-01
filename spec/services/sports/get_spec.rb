@@ -1,36 +1,38 @@
 require 'rails_helper'
 
 describe Sports::Get do 
-  subject { Sports::Get.new api_content}
+  let(:content) { double 'content' }
+  let(:sports)   { [{}] }
 
-  let(:api_content) { 
-    {
-      "version"=>"9", 
-      "sports"=>[{ "id"=>101, "title"=>"Football", "whatever" => "9" }, 
-        { "id"=>100, "title"=>"Tenis", "whatever" => "12" }]
-    }
-  }
+  subject { described_class.new content}
 
   describe 'call' do
     context "when content hash has sports" do
-      it 'filters the sports of the content' do
-        expect(subject.call).to eq(
-        [
-          { "id" => 101, "title" => "Football" }, 
-          { "id" => 100, "title" => "Tenis" }
-        ])
+      before do
+        allow(content).to receive(:has_key?).
+          with("sports").and_return(true)
+
+        allow(content).to receive(:fetch).
+          with("sports").and_return(sports)
+      end
+
+      it 'builds the sport model' do
+        expect(Sport).to receive(:new)
+
+        subject.call
       end
     end
 
     context "when content hash has not key sports" do
-      let(:api_content) { double 'message' }
-      
-      before do 
-        allow(api_content).to receive(:fetch)
+      before do
+        allow(content).to receive(:has_key?).
+          with("sports").and_return(false)
       end
-      
-      it "return the content" do
-        expect(subject.call).to eq(api_content)
+    
+      it "builds an error model" do
+        expect(NullSport).to receive(:new)
+          
+        subject.call
       end
     end
   end

@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-describe NullEvent do
+describe NullOutcome do
   let(:value) { double 'value' }
   
-  describe 'event_id' do
+  describe 'outcome_id' do
     it 'returns an empty array' do
-      expect(subject.event_id).to eq("no information")
+      expect(subject.outcome_id).to eq("no information")
     end
   end
 
-  describe 'title' do
+  describe 'description' do
     it 'returns an empty array' do
-      expect(subject.title).to eq("no information")
+      expect(subject.description).to eq("no information")
     end
   end
 
@@ -21,9 +21,15 @@ describe NullEvent do
     end
   end
 
-  describe 'is_virtual' do
+  describe 'price' do
     it 'returns an empty array' do
-      expect(subject.is_virtual).to eq("no information")
+      expect(subject.price).to eq("no information")
+    end
+  end
+
+  describe 'decimal_price' do
+    it 'returns an empty array' do
+      expect(subject.decimal_price).to eq("no information")
     end
   end
 

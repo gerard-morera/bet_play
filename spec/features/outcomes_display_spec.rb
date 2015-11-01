@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'outcomes display' do
   let (:first_request_response)  {{status: 200, body: body, headers: {}}}
   let (:second_request_response) {{status: 200, body: body, headers: {}}}
+  
   before(:each) do
     Capybara.current_driver = :selenium
 
@@ -25,18 +26,6 @@ feature 'outcomes display' do
         expect(page).to have_css(".pricedecimal", :text => "1.66666667")
         expect(page).to have_css(".price", :text => "4/6")
       end
-    end
-  end
-
-  context "when external api does not work" do
-    let (:third_request_response) {{:status => [500, "Internal Server Error"]}}
-    
-    scenario 'page response with error' do
-      visit '/'
-      click_link 'Football'
-      click_link 'Barça-Madrid'
-      
-      expect(page).to have_text("We are having problems connecting to the server")
     end
   end
 

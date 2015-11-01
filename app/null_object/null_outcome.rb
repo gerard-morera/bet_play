@@ -1,9 +1,9 @@
-class NullEvent
+class NullOutcome
   def each_with_object value
     self 
   end
 
-  def event_id
+  def outcome_id
     "no information"
   end
 
@@ -11,11 +11,15 @@ class NullEvent
     "no information"
   end
 
-  def title
+  def description
     "no information"
   end
 
-  def is_virtual
+  def price
+    "no information"
+  end
+
+  def decimal_price
     "no information"
   end
 
