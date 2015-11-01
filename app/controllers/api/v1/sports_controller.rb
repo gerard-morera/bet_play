@@ -16,8 +16,8 @@ module Api
       end
 
       def serializer data
-        serializer = SportSerializer.new data
-        serializer.call
+        sports_serializer = SportsSerializer.new data
+        sports_serializer.call
       end
     end
   end

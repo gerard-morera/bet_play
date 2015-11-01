@@ -35,7 +35,7 @@ RSpec.describe "CanGetSports", type: :request do
         expect(response).to have_http_status(200)
       end
 
-      it "returns the sports available in the external service" do
+      it "" do
         get sports_path
         expect(response.body).to eq("{}")
       end

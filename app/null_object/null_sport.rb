@@ -10,4 +10,8 @@ class NullSport
   def each_with_object value
     self
   end
+
+  def has_key? value
+    false
+  end
 end
