@@ -1,6 +1,7 @@
+
 class StatusError < StandardError; end
 
-module BetVictor
+module BetVictor 
   class Content
     PATH = '/live/en/live/list.json'
 

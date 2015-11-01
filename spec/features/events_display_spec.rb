@@ -12,19 +12,17 @@ feature 'events display' do
   end
 
   context "when external api works" do
-    context "and there are live events" do
-      let (:second_request_response) {{status: 200, body: body, headers: {}}}
-    
-      scenario 'page show the right content' do
-        visit '/'
+    let (:second_request_response) {{status: 200, body: body, headers: {}}}
+  
+    scenario 'page show the right content' do
+      visit '/'
 
-        click_link 'Football'
+      click_link 'Football'
 
-        expect(page).to have_css(".title", :text => "Title: Barça-Madrid")
-        expect(page).to have_css(".isvirtual", :text => "Is virtual? false")
+      expect(page).to have_css(".title", :text => "Title: Barça-Madrid")
+      expect(page).to have_css(".isvirtual", :text => "Is virtual? false")
 
-        expect(page).to have_content
-      end
+      expect(page).to have_content
     end
   end
 
@@ -33,6 +31,7 @@ feature 'events display' do
     
     scenario 'page response with error' do
       visit '/'
+
       click_link 'Football'
       expect(page).to have_text("We are having problems connecting to the server")
     end
