@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe NullSport do
   let(:value) { double 'value' }
   

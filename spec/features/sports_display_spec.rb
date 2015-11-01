@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'sports display' do
-
   before(:each) do
     Capybara.current_driver = :selenium
 

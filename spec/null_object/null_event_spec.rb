@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe NullEvent do
   let(:value) { double 'value' }
   
