@@ -4,7 +4,7 @@ module Api
       def index
         getter = Sports::Get.new content
         sports = getter.call 
-        binding.pry
+
         render json: serializer(sports)
       end
 
