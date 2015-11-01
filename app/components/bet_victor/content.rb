@@ -1,4 +1,3 @@
-
 class StatusError < StandardError; end
 
 module BetVictor 

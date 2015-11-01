@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
+  
   rescue_from StatusError, with: :status_error
 
   private

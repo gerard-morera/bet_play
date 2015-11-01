@@ -35,7 +35,7 @@ RSpec.describe "CanGetSports", type: :request do
         expect(response).to have_http_status(200)
       end
 
-      it "" do
+      it "returns an empty hash" do
         get sports_path
         expect(response.body).to eq("{}")
       end

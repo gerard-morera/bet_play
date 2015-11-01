@@ -35,7 +35,7 @@ RSpec.describe "CanGetOutcomes", type: :request do
         expect(response).to have_http_status(200)
       end
 
-      it "" do
+      it "returns an empty hash" do
         get sport_event_outcomes_path(:event_id => "1728292", :sport_id => "101")
         expect(response.body).to eq("{}")
       end
