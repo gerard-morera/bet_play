@@ -15,7 +15,7 @@ RSpec.describe "CanGetEvents", type: :request do
         and_return(get_content)
     end
 
-    context "with not nulll events hash" do
+    context "with an events hash" do
       it "has 200 response status" do
         get sport_events_path(:sport_id => "101")
         expect(response).to have_http_status(200)
@@ -27,7 +27,7 @@ RSpec.describe "CanGetEvents", type: :request do
       end
     end
 
-    context "without a not null events hash" do
+    context "without an events hash" do
       let(:get_content) {{}}
 
       it "has 200 response status" do

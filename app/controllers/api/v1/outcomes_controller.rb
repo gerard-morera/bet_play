@@ -5,7 +5,7 @@ module Api
         getter   = Outcomes::Get.new outcomes_params, content
         outcomes = getter.call
         
-        render json: outcomes
+        render json: serializer(outcomes)
       end
 
       private
@@ -17,6 +17,11 @@ module Api
       def content
         content = BetVictor::Content.new
         content.get
+      end
+
+      def serializer outcomes
+        outcomes_serializer = OutcomesSerializer.new outcomes
+        outcomes_serializer.call
       end
     end
   end

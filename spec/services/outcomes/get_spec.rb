@@ -3,8 +3,8 @@ require 'rails_helper'
 describe Outcomes::Get do 
   let(:params)           { double 'params' }
   let(:content)          { double 'content' }
-  let(:sport_show_class) { double 'sport_show_class'}
-  let(:event_show_class) { double 'event_show_class'}
+  let(:sport_show_class) { double 'sport_show_class' }
+  let(:event_show_class) { double 'event_show_class' }
   
   let(:selected_sport)   { double 'selected_sport' }
   let(:sport)            { double 'sport' }
