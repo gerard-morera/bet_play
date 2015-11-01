@@ -17,14 +17,19 @@ module Outcomes
 
     private
 
+    def build_outcomes
+      event.fetch("outcomes").map do |outcome|
+        Outcome.new outcome, params
+      end
+    end
+
     def sport
       sport = sport_show_class.new params, content
       sport.call
     end
 
     def event
-      event = event_show_class.new params, sport
-      event.call
+      @event ||= event_show_class.new(params, sport).call
     end
 
     attr_reader :params, :content, :sport_show_class, :event_show_class
