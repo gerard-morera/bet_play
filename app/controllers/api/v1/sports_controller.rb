@@ -3,9 +3,9 @@ module Api
     class SportsController < ApplicationController
       def index
         getter = Sports::Get.new content
-        sports = getter.call
+        sports = getter.call 
         binding.pry
-        render json: sports
+        render json: serializer(sports)
       end
 
       private 
@@ -13,6 +13,11 @@ module Api
       def content
         content = BetVictor::Content.new
         content.get
+      end
+
+      def serializer data
+        serializer = SportSerializer.new data
+        serializer.call
       end
     end
   end

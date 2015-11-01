@@ -15,7 +15,7 @@ RSpec.describe "CanGetSports", type: :request do
         and_return(get_content)
     end
 
-    context "with a working API" do
+    context "with a not null sport hash" do
       it "has a 200 response status" do
         get sports_path
         expect(response).to have_http_status(200)
@@ -27,10 +27,8 @@ RSpec.describe "CanGetSports", type: :request do
       end
     end
 
-    context "without a working API" do
-      let(:get_content) do
-        {"error_message"=>"We are having problems connecting to the server"}
-      end
+    context "without a not null sport hash" do
+      let(:get_content) {{}}
 
       it "has a 200 response status" do
         get sports_path
@@ -39,7 +37,7 @@ RSpec.describe "CanGetSports", type: :request do
 
       it "returns the sports available in the external service" do
         get sports_path
-        expect(response.body).to eq("{\"error_message\":\"We are having problems connecting to the server\"}")
+        expect(response.body).to eq("{}")
       end
     end
   end

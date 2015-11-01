@@ -16,7 +16,7 @@ module Sports
 
     def build_sport
       sports = content.fetch "sports"
-
+      
       sports.each_with_object([]) do |sport, accum|
         accum << Sport.new(sport)
       end

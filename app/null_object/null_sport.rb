@@ -6,4 +6,8 @@ class NullSport
   def title
     "no information"
   end
+
+  def each_with_object value
+    self
+  end
 end
