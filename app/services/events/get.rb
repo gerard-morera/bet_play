@@ -1,34 +1,31 @@
 module Events
   class Get
-    def initialize params, content, sport_class: Sports::Show
-      @params      = params
-      @content     = content
-      @sport_class = sport_class
+    def initialize params, content, sport_show_class: Sports::Show
+      @params            = params
+      @content           = content
+      @sport_show_class  = sport_show_class
     end
 
     def call
-      sport.fetch("events").map do |event|
-        event.slice("event_id", "title", "is_virtual").merge(sport_id)
-      end.compact
-    rescue
-
-      sport
+      if sport.has_key? "events"
+        build_events
+      else
+        NullEvent.new
+      end
     end
 
     private
 
+    def build_events
+      sport.fetch("events").map do |event|
+        Event.new event, params
+      end
+    end
+
     def sport
-      sport_content || NullSport.new
+      @sport ||=  sport_show_class.new(params, content).call
     end
 
-    def sport_content
-      @sport_content ||=  sport_class.new(params, content).call
-    end
-
-    def sport_id
-      { "sport_id" => params.sport_id }
-    end
-
-    attr_reader :params, :content, :sport_class
+    attr_reader :params, :content, :sport_show_class
   end
 end

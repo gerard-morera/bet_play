@@ -4,7 +4,6 @@ class SportSerializer
   end
 
   def call
-    binding.pry
     data.each_with_object([]) do |element, accum|
       accum << as_json(element)
     end
