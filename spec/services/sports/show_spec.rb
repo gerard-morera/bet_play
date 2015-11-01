@@ -18,7 +18,6 @@ describe Sports::Show do
   end
 
   describe 'call' do
-
     context 'when there is a sport key' do
       before do
         allow(content).to receive(:has_key?).
@@ -38,15 +37,16 @@ describe Sports::Show do
           expect(subject.call).to be_instance_of(NullSport)
         end
       end
-    end
-    context 'when there is not a sport key' do
-      before do
-        allow(content).to receive(:has_key?).
-          with("sports").and_return(false)
-      end
 
-      it 'returns a null sport' do
-        expect(subject.call).to be_instance_of(NullSport)
+      context 'when there is not a sport key' do
+        before do
+          allow(content).to receive(:has_key?).
+            with("sports").and_return(false)
+        end
+
+        it 'returns a null sport' do
+          expect(subject.call).to be_instance_of(NullSport)
+        end
       end
     end
   end

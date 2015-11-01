@@ -8,10 +8,11 @@ module Outcomes
     end
 
     def call
-      existing_event.fetch("outcomes")
-    rescue
-
-      existing_event
+      if event.has_key? 'outcomes'
+        build_outcomes
+      else
+        NullOutcome.new
+      end
     end
 
     private
@@ -24,10 +25,6 @@ module Outcomes
     def event
       event = event_show_class.new params, sport
       event.call
-    end
-
-    def existing_event
-      event || NullEvent.new
     end
 
     attr_reader :params, :content, :sport_show_class, :event_show_class

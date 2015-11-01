@@ -6,18 +6,23 @@ module Events
     end
 
     def call
-      existent_sport.fetch("events").find do |event|
-        event["event_id"].to_i == event_id.to_i
+      if sport.has_key? "events"
+        get_event
+      else
+        NullEvent.new
       end
-    rescue
-      
-      existent_sport
     end
 
     private
 
-    def existent_sport
-      sport || NullSport.new
+    def get_event
+      event || NullEvent.new
+    end
+
+    def event
+      sport.fetch("events").find do |event|
+        event["event_id"].to_i == event_id.to_i
+      end
     end
 
     attr_reader :params, :sport
