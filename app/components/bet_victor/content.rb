@@ -27,7 +27,7 @@ module BetVictor
     end
 
     def response
-      connection.get PATH
+      @response ||= connection.get PATH
     end
 
     def host

@@ -29,6 +29,18 @@ feature 'outcomes display' do
     end
   end
 
+  context "when external api does not work" do
+    let (:third_request_response) {{:status => [500, "Internal Server Error"]}}
+    
+    scenario 'page response with error' do
+      visit '/'
+      click_link 'Football'
+      click_link 'Barça-Madrid'
+      
+      expect(page).to have_text("We are having problems connecting to the server")
+    end
+  end
+
   def body
     "{\"version\":\"9\",\"sports\":[{\"id\":101,\"title\":\"Football\",\"events\":[{\"event_id\":292582210,\"title\":\"Barça-Madrid\",\"is_virtual\":\"false\",\"outcomes\":[{\"description\":\"Barça\",\"price\":\"4/6\",\"price_decimal\":1.66666667},{\"description\":\"Madrid\"}]}]},{\"id\":100,\"title\":\"Tennis\"}]}"
   end
