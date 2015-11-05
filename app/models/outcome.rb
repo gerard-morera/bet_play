@@ -21,5 +21,4 @@ class Outcome
   attr_reader :data, :params
 
   delegate :sport_id, :event_id, to: :params
-
 end
