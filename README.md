@@ -1,2 +1,3 @@
 
-This rails app fetches sports live information from a third API, parses and organize it and makes it available to a Backbone front end.
+This rails app fetches live sport information from a third party API, parses and organize it.
+A Backbone front end provides the user with an easy-to-use interface in order to view the data.
